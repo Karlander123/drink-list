@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+    margin: 0 auto;
+    max-width: 768px;
+}
+.container {
+    margin-top: 10px;
+}
+.filter_wrapper {
+    display: block;
+    text-align: center;
+}
+.mat-tab-links {
+    text-align: right;
+   display: block;
+}
+.mat-tab-link {
+    display: inline-block;
+}
+#logo {
+    width: 75%;
+    /* width: 100%; */
+}
+.col {
+    padding: 5px;
+}
+
+/* .mat-tab-links {
+    text-align: center !important;
+}
+
+@media (max-width: 350px) {
+    .mat-tab-link {
+        padding: 0 15px !important;
+    }
+} */

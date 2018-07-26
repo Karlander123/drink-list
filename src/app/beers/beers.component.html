@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="filter_wrapper">
+      <mat-form-field class="example-form-field">
+          <input matInput type="text" placeholder="Search beer" [(ngModel)]="title" (keyup)="filterName('title', title)">
+          <mat-icon mat-button *ngIf="title" matSuffix mat-icon-button aria-label="Clear" (click)="removeFilter('title')">close</mat-icon>
+      </mat-form-field>
+      <mat-chip-list>
+        <mat-chip color="warn" selected *ngIf="title" (click)="removeFilter('title')">Remove filter</mat-chip>
+      </mat-chip-list>
+      <mat-form-field>
+          <mat-select placeholder="Country" [(ngModel)]="country" (selectionChange)="filterExact('country', country)">
+            <mat-option [value]="country" *ngFor="let country of select_country">
+                {{ country }}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-chip-list>
+       <mat-chip color="warn" selected *ngIf="country" (click)="removeFilter('country')">Remove filter</mat-chip>
+      </mat-chip-list>
+      <mat-form-field>
+        <mat-select placeholder="Beer type" [(ngModel)]="type" (selectionChange)="filterExact('type', type)">
+          <mat-option [value]="type" *ngFor="let type of select_type">
+              {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-chip-list>
+        <mat-chip color="warn" selected *ngIf="type" (click)="removeFilter('type')">Remove filter</mat-chip>
+      </mat-chip-list>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Size(cl)</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let beer of filteredBeers">
+          <td>{{ beer.title }}</td>
+          <td>{{ beer.price | currency:'USD':symbol }}</td>
+          <td>{{ beer.size }}cl</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+
